@@ -1,4 +1,5 @@
 from django.shortcuts import render
+
 from .models import Accionista
 from .serializer import AccionistaSerializer
 from rest_framework import generics, mixins
@@ -20,7 +21,7 @@ class AccionistaList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.Ge
     def get(self, request):
         return self.list(request)
     
-    def post(selft, request):
+    def post(self, request):
         return self.create(request)
 
 class AccionistaDetail(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin, generics.GenericAPIView):
