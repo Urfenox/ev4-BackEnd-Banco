@@ -1,9 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
+from .models import Accionista
 
 # Create your views here.
 
 def MostrarInicio(request):
-    return render(request, 'Accionistas\index.html')
+    accionistas = Accionista.objects.all()
+    data = {'accionistas':accionistas}
+    # print("\n" + str(accionistas[1].nombre))
+    return render(request, 'Accionistas\index.html', data)
 
-def MostrarPanel(request):
-    return render(request, 'Accionistas\panel.html')
+def ControladorAPI(request):
+    return HttpResponse("<h1>UPS. Esto no esta listo aun.</h1>")
