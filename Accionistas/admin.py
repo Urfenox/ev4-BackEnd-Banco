@@ -3,4 +3,7 @@ from django.contrib import admin
 from .models import Accionista
 
 # Register your models here.
-admin.site.register(Accionista)
+class AccionistaAdmin(admin.ModelAdmin):
+    list_display = ['nombre', 'rut', 'activo']
+
+admin.site.register(Accionista, AccionistaAdmin)
